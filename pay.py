@@ -56,17 +56,17 @@ set = {'x', 'y', 'a'}  # Data Types set
 print(type(set))
 print(set)
 
-list = ["apple", "banana", "cherry"]  # Data Types list
-print(type(list))
-print(list)
+list0 = ["apple", "banana", "cherry"]  # Data Types list
+print(type(list0))
+print(list0)
 
 frozenset = frozenset({1, 2, 3, 't'})  # Data Types frozenset
 print(type(frozenset))
 print(frozenset)
 
-bool = True  # Data Types bool || boolean
-print(type(bool))
-print(bool)
+boole = True  # Data Types bool || boolean
+print(type(boole))
+print(boole)
 
 bytearray = bytearray(5)  # Data Types bytearray || bytearray
 print(type(bytearray))
@@ -288,10 +288,543 @@ txt0 = "\x48\x65\x6c\x6c\x6f"
 print(txt0) 
 
 
+# Boolean Values
+# In programming you often need to know if an expression is True or False.
+# You can evaluate any expression in Python, and get one of two answers, True or False.
+
+t =300
+f= 900
+
+if t==f:
+    print('right backback')
+else:
+    print('wrong backback')
+
+# Evaluate Values and Variables
+# The bool() function allows you to evaluate any value, and give you True or False in return,
+
+print(bool(t))
+print(bool(f))
+
+# Some Values are False
+# In fact, there are not many values that evaluate to False, except empty values, such as (), [], {}, "", the number 0, and the value None. And of course the value False evaluates to False.
+bool(False)
+bool(None)
+bool(0)
+bool("")
+bool(())
+bool([])
+bool({})
+print(bool(False))
+
+# Python Assignment Operators
+# Assignment operators are used to assign values to variables:
 
 
+num1=20
+num2=10
+
+num1 += 5 # x = x + 3
+
+print(num1)
+
+# Comparison Operators
+print(num1 != num2)
+print(num1 == num2)
+
+# Python Logical Operators
+# Logical operators are used to combine conditional statements:
+
+print(num1<10 and num2>3) # Returns True if both statements are true
+
+print(num1 == 0 or num2== 1)  # Returns True if one of the statements is true
+
+print(not( num1 == 0 and num2== 1)) # 	Reverse the result, returns False if the result is true
+
+# Python Membership Operators
+# Membership operators are used to test if a sequence is presented in an object:
+
+print(num1 is num2)
+# print(num1 not in num2)
+
+# Python Bitwise Operators
+print(num1&num2) # AND
+print(num1&num2) # OR
+print(num1^num2) # XOR
+print(~num2) # NOT
+print(num2 << 2) # 	Zero fill left shift
+print(num2 >> 2) # Signed right shift	
+
+# List
+
+mylist = ['wang','toll', 'thars,',4]
+print(mylist)
+print(mylist[0])
+print(len(mylist)) #length
+
+list1 = ["abc", 34, True, 40, "male"] #mixed
+
+print(list1)
+
+print(type(list1)) # data types
+
+# Range of Indexes
+print(list1[1:4])
+print(list1[:3])
+print(list1[3:])
+
+if 'abc' in list1:
+    print('true mf')
+
+# Change Item Value
+# To change the value of a specific item, refer to the index number:
+list1[0]= 'sherpas'
+print(list1)
+
+# Change a Range of Item Values
+mylist[1:2] = ['abbs' ,'abbs2']
+print(mylist)
+
+# Insert Items
+# To insert a new list item, without replacing any of the existing values, we can use the insert() method.
+
+# The insert() method inserts an item at the specified index:
+
+mylist.insert(0, 'tharchens')
+list1.insert(1, 2000)
+print(mylist)
+print(list1)
 
 
+# Append Items
+# To add an item to the end of the list, use the append() method:
+
+list1.append(10000)
+mylist.insert(50,600090)
+print(mylist)
+print(list1)
+
+# Extend List
+# To append elements from another list to the current list, use the extend() method.
+
+mylist.extend(list1)
+print(mylist)
+
+# Add Any Iterable
+# The extend() method does not have to append lists, you can add any iterable object (tuples, sets, dictionaries etc.).
+thislist = ["apple", "banana", "cherry"]
+thistuple = ("kiwi", "orange")
+thislist.extend(thistuple)
+print(thislist)
+
+# Remove Specified Item
+# The remove() method removes the specified item.
+mylist.remove("tharchens")
+print(mylist)
+
+# Remove Specified Index
+# The pop() method removes the specified index.
+
+mylist.pop(3)
+thislist.pop(3)
+print(mylist)
+print(thislist)
+
+# If you do not specify the index, the pop() method removes the last item.
+mylist.pop()
+print(mylist)
+
+# The del keyword also removes the specified index:
+del mylist[0]
+print(mylist)
+
+# The del keyword can also delete the list completely.
+# del mylist
+# print(mylist)
+
+# Clear the List
+# The clear() method empties the list.
+
+# The list still remains, but it has no content.
+
+thislist.clear()
+print(thislist)
+
+# Loop Through a List
+
+newlist =['sherab','tharchen','bhai']
+
+for x in newlist:
+    print(x)
+
+# Loop Through the Index Numbers
+# You can also loop through the list items by referring to their index number.
+# Use the range() and len() functions to create a suitable iterable.
+
+for i in range(len(newlist)):
+    print(newlist[i])
+
+# Using a While Loop
+# You can loop through the list items by using a while loop.
+# Use the len() function to determine the length of the list, then start at 0 and loop your way through the list items by referring to their indexes.
+# Remember to increase the index by 1 after each iteration.
 
 
+k = 0
+while k < len(newlist):
+    print(newlist[k])
+    k = k + 1
 
+# Looping Using List Comprehension
+# List Comprehension offers the shortest syntax for looping through lists:
+
+[print(n) for n in newlist]
+
+
+# List Comprehension
+# List comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list.
+# Example:
+# Based on a list of fruits, you want a new list, containing only the fruits with the letter "a" in the name.
+# Without list comprehension you will have to write a for statement with a conditional test inside:
+
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+fruitlist =[]
+for x in fruits:
+    if "a" in x:
+        fruitlist.append(x)
+print(fruitlist) # prints sting with a in it
+
+
+# With list comprehension you can do all that with only one line of code:
+listing = [x for x in fruits if "i" in x]
+print(listing)
+
+# The Syntax
+# newlist = [expression for item in iterable if condition == True]
+
+# Condition
+# The condition is like a filter that only accepts the items that valuate to True.
+
+newlisting = [x for x in fruits if x != 'apple']
+print(newlisting)
+
+noif = [x for x in fruits]
+print(noif)
+
+# Iterable
+# The iterable can be any iterable object, like a list, tuple, set etc
+# You can use the range() function to create an iterable:
+iteri = [x for x in range(10)]
+print(iteri)
+
+
+# Accept only numbers up on given condition :
+only = [x for x in range(15) if x >7 ]
+print(only)
+
+# Set the values in the new list to upper case:
+capt = [x.upper() for x in fruits]
+print(capt)
+
+# Set all values in the new list to 'hello':
+change = ['hello' for x in fruits]
+print(change)
+
+
+# Return "orange" instead of "banana":
+ret = [x if x != 'banana' else 'orange' for x in fruits]
+print(ret)
+
+# Sort List Alphanumerically
+# List objects have a sort() method that will sort the list alphanumerically, ascending, by default:
+shortlist = ['sherab','vikra','tharchen','dherpa','okai']
+# all ascending
+shortlist.sort() # arranges the string
+print(shortlist)
+
+num = [20,0,2,23,4,5,56,5,4,9]
+num.sort()
+print(num)
+
+# Sort Descending
+# To sort descending, use the keyword argument reverse = True:
+
+shortlist.sort(reverse= True)
+print(shortlist)
+
+num.sort(reverse= True)
+print(num)
+
+
+# Perform a case-insensitive sort of the list:
+thislist = ["banana", "Orange", "Kiwi", "cherry"]
+thislist.sort(key= str.lower)
+print(thislist)
+
+# The reverse() method reverses the current sorting order of the elements.
+
+thislist.reverse()
+print(thislist)
+
+# Copy a List
+# There are ways to make a copy, one way is to use the built-in List method copy().
+listcopy = thislist.copy()
+print(listcopy)
+
+# Join Two Lists
+joinlist = listcopy + num
+print(joinlist  )
+
+# Another way to join two lists is by appending all the items from list2 into list1, one by one:
+list1 = [1,2,3,4,5]
+list2= [2,4,6,7,89,9]
+
+for x in list2:
+    list1.append(x)
+print(list1)
+
+# Or you can use the extend() method, which purpose is to add elements from one list to another list:
+
+list1.extend(list2)
+print(list1)
+
+# ct = fruitlist.count()
+# print(ct)
+
+# Python Tuples
+mytuple = ('sherab','tharchen', 'sherpa', 'bhai')
+# A tuple is a collection which is ordered and unchangeable.
+print(mytuple)
+print(type(mytuple))
+print(len(mytuple))
+
+mytuple1 = ('only one')
+print(type(mytuple1))
+
+# Using the tuple() method to make a tuple:
+tup = tuple((1,2,3,True,False))
+print(tup)
+print(tup[3])
+
+# Negative Indexing
+# Negative indexing means start from the end.
+# -1 refers to the last item, -2 refers to the second last item etc.
+
+print(tup[-1])
+print(tup[-2])
+print(tup[:3]) # range of indexing
+print(tup[-2:-4]) # range of indexing
+
+# Check if Item Exists
+# To determine if a specified item is present in a tuple use the in keyword:
+
+if 1 in tup:
+    print('hell ya bitch')
+else:
+    print('no bitches')
+
+# Change Tuple Values
+app = list(tup)
+app.append('orabge') # append() method
+tup = tuple(app)
+
+print(tup)
+
+# app1 = list(tup)
+# app1[0] = 000
+# tup = tuple(tup)
+
+# print(tup)
+
+
+# Remove Items
+remo = list(tup)
+remo.remove(2) # remove methoid
+tup = tuple(remo)
+
+print(tup)
+
+# The del keyword can delete the tuple completely:
+
+del tup
+# print(tup) # cause an error cause tup is lready deleated
+
+# Unpacking a Tuple
+# When we create a tuple, we normally assign values to it. This is called "packing" a tuple:
+unpack = (1,2,3,4)
+(a,b,c,d) = unpack
+
+print(a)
+print(b)
+print(c)
+print(d)
+
+# Using Asterisk*
+# If the number of variables is less than the number of values, you can add an * to the variable name and the values will be assigned to the variable as a list:
+
+Asterisk = [1,2,3,4]
+(a,*red) = Asterisk
+
+print(a)
+print(red)
+
+# Loop Through a Tuple
+# You can loop through the tuple items by using a for loop.
+
+for x in Asterisk:
+    print(x)
+
+# Loop Through the Index Numbers
+# You can also loop through the tuple items by referring to their index number.
+# Use the range() and len() functions to create a suitable iterable.
+
+for i in range(len(Asterisk)):
+    print(Asterisk[i])
+
+thistuple = ("apple", "banana", "cherry")
+for i in range(len(thistuple)):
+  print(thistuple[i])
+
+
+#   Using a While Loop
+# You can loop through the tuple items by using a while loop.
+
+# i = 0
+# while i < len(thistuple):
+#   print(thistuple[i])
+#   i = i + 1
+
+# Join Two Tuples
+# To join two or more tuples you can use the + operator:
+
+tub1 = (1,2,3,4,5)
+tub2 = (3,0,4,5,6,7)
+
+tub3 = tub1 + tub2 #addation
+print(tub3)
+
+tub4 = tub2 *2 #multiply
+print(tub4)
+
+# Python Sets
+# Unchangeable Unordered
+myset = {"apple", "banana", "cherry",1 }
+
+print(myset)
+# Sets are used to store multiple items in a single variable.
+# Set is one of 4 built-in data types in Python used to store collections of data,
+
+# Duplicates Not Allowed
+dipcl = {'sherab','sherab','sherab','tharchen'}
+print(dipcl)
+
+sets = {1,True,3,4,5,6,7} # The values True and 1 are considered the same value in sets, and are treated as duplicates:
+print(sets)
+
+print(len(sets))
+print(type(sets))
+
+# looping
+for x in sets:
+    print(x)
+
+# Check if "   " is present in the set:
+thisset = {"apple", "banana", "cherry"}
+
+print("banana" in thisset)
+
+# To add one item to a set use the add() method.
+thisset.add('tharchen')
+print(thisset)
+
+# To add items from another set into the current set, use the update() method.
+updateset = {"apple", "banana", "cherry","tharchen", "wangmo"}
+thisset.update(updateset)
+print(thisset)
+
+# The object in the update() method does not have to be a set, it can be any iterable object (tuples, lists, dictionaries etc.).
+irrset = [1,20]
+thisset.update(irrset)
+print(thisset)
+
+# Remove Item
+# To remove an item in a set, use the remove(), or the discard() method.
+thisset.remove('apple')
+print(thisset)
+
+#  using the discard() method:
+thisset.discard('tharchen')
+print(thisset)
+# Note: If the item to remove does not exist, discard() will NOT raise an error.
+
+# You can also use the pop() method to remove an item, but this method will remove a random item, so you cannot be sure what item that gets removed.
+# The return value of the pop() method is the removed item.
+
+# pop() method
+# thisset.pop()
+# print(thisset) doing direct
+
+p = thisset.pop() # shows the pop item
+print(p)
+print(thisset)
+
+# clear ()
+thisset.clear()
+print(thisset)
+
+#del 
+del sets
+# print(sets) gives err as sets is already deleted
+
+thisset = {"apple", "banana", "cherry"}
+
+# looping
+for x in thisset:
+    print(x)
+
+# Join Two Sets
+# The union() method returns a new set with all items from both sets:
+thisset1 ={1,2,3,4,5}
+thisset2 = thisset.union(thisset1)
+print(thisset2)
+
+# The update() method inserts the items in set2 into set1:
+thisset3 ={1,2,3,4,5,6}
+thisset.update(thisset3)
+print(thisset)
+
+# Note: Both union() and update() will exclude any duplicate items.
+
+del x
+del y
+
+# The intersection_update() method will keep only the items that are present in both sets.
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+
+x.intersection_update(y)
+print(x)
+
+# The intersection() method will return a new set, that only contains the items that are present in both sets.
+del z
+z =x.intersection(y)
+print(z)
+
+del x
+del y
+
+
+# Keep All, But NOT the Duplicates
+# The symmetric_difference_update() method will keep only the elements that are NOT present in both sets.
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+
+x.symmetric_difference_update(y)
+print(x)
+
+
+# The symmetric_difference() method will return a new set, that contains only the elements that are NOT present in both sets.
+zd = x.symmetric_difference(y)
+print(zd)
+
+# True and 1 is considered the same value:
