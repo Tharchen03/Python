@@ -48,9 +48,9 @@ myfun()  # caalling function
 # None Type:	NoneType
 
 # q= range(30) Data Types range
-dict = {"name": "tharchen", "age": 21}  # Data Types dict
-print(type(dict))
-print(dict)
+dict1 = {"name": "tharchen", "age": 21}  # Data Types dict
+print(type(dict1))
+print(dict1)
 
 set = {'x', 'y', 'a'}  # Data Types set
 print(type(set))
@@ -828,3 +828,164 @@ zd = x.symmetric_difference(y)
 print(zd)
 
 # True and 1 is considered the same value:
+del x
+del y
+
+# Python Dictionaries
+thisdict ={
+    "name" : "tharchen",
+    "year" : 2003,
+    "age" : 21
+}
+
+print(thisdict)
+print(thisdict['age']) # indexing
+print(len(thisdict)) # length
+
+thisdict ={
+    "name" : "tharchen",
+    "year" : 2003,
+    "age" : 21,
+    "color" : ['green','red','org']
+}
+print(thisdict)
+print(type(thisdict))
+del thisdict
+
+# Making dict() using
+makedict = dict(name ="sherab", GE =2003,YEAR=2023) 
+
+print(makedict)
+
+print(makedict['name'])
+
+# using get() method
+x = makedict.get('GE')
+print(x)
+
+del x
+# The keys() method will return a list of all the keys in the dictionary.
+x = makedict.keys()
+print(x)
+
+makedict['color'] = "white" # adds new keys
+print(x)
+
+
+# Get Values
+# The values() method will return a list of all the values in the dictionary.
+y = makedict.values()
+print(y)
+makedict['name'] = "sherabtharchen" # update new keys
+makedict['gender'] = "male"
+print(y)
+
+# Get Items
+# The items() method will return each item in a dictionary, as tuples in a list.
+
+z = makedict.items()
+print(z)
+
+# Check if Key Exists
+# To determine if a specified key is present in a dictionary use the in keyword:
+
+if 'name' in makedict:
+    print("yep")
+
+del x,y,z, makedict
+
+# Change Values
+# You can change the value of a specific item by referring to its key name:
+thisdict1 = {
+    "name" : "tharchen",
+    "year" : 2003,
+    "age" : 21,
+    "color" :'org'
+    }
+
+thisdict1["name"] = "sherabtharchen" # giving new values
+print(thisdict1)
+
+# The update() method will update the dictionary with the items from the given argument.
+# The argument must be a dictionary, or an iterable object with key:value pairs.
+
+thisdict1.update({"age" : 2000})
+print(thisdict1["age"])
+
+# Adding Items
+# Adding an item to the dictionary is done by using a new index key and assigning a value to it:
+
+thisdict1["wkwk"] = 30003030
+print(thisdict1)
+
+# update() method 
+
+thisdict1.update({"wkwk" : 1000000000})
+print(thisdict1["wkwk"])
+
+
+# Removing Items
+# There are several methods to remove items from a dictionary:
+
+# The pop() method removes the item with the specified key name:
+thisdict1.pop("wkwk")
+print(thisdict1)
+
+# The popitem() method removes the last inserted item (in versions before 3.7, a random item is removed instead):
+thisdict1.popitem()
+print(thisdict1)
+
+# The clear() method empties the dictionary:
+# thisdict1.clear()
+# print(thisdict1)
+
+# Loop Through a Dictionary
+for x in thisdict1: # prints only the keys
+    print(x)
+
+for x in thisdict1: # prints only the values
+    print(thisdict1[x])
+
+for x in thisdict1.values(): # prints only the values
+    print(x)
+
+# You can use the keys() method to return the keys of a dictionary:
+for x in thisdict1.keys():
+    print(x)
+
+# You can use the keys() method to return the keys of a dictionary:
+for x,y in thisdict1.items():
+    print(x,y)
+
+# Copy a Dictionary
+
+copygg = thisdict1.copy()
+print(copygg)
+
+# Another way to make a copy is to use the built-in function dict().
+
+another = dict(copygg)
+print(another)
+
+del thisdict1,copygg,another
+
+# Nested Dictionaries
+# A dictionary can contain dictionaries, this is called nested dictionaries.
+
+myfamily = {
+  "child1" : {
+    "name" : "Emil",
+    "year" : 2004
+  },
+  "child2" : {
+    "name" : "Tobias",
+    "year" : 2007
+  },
+  "child3" : {
+    "name" : "Linus",
+    "year" : 2011
+  }
+}
+
+print(myfamily)
+print(myfamily["child3"]['name'])
