@@ -93,3 +93,113 @@ del sup, o1,t1,t2
 # class definitions cannot be empty, but if you for some reason have a class definition with no content, put in the pass statement to avoid getting an error.
 
 del person,suppercar,objectfunctions,tharchen
+
+
+# parent  child class
+class sherab:
+    def __init__(self,name,age): # parent
+        self.name = name
+        self.age =age
+
+    def parent_child(self): # child
+        print(self.name, self.age)
+        
+
+
+x = sherab("tharchen",50)
+print(x.name)
+print(x.age)
+
+x.parent_child()
+
+# Add the __init__() Function
+# So far we have created a child class that inherits the properties and methods from its parent.
+
+# We want to add the __init__() function to the child class (instead of the pass keyword).
+
+class Person:
+  def __init__(self, fname, lname):
+    self.firstname = fname
+    self.lastname = lname
+
+  def printname(self):
+    print(self.firstname, self.lastname)
+
+class Student(Person):
+  def __init__(self, fname, lname):
+    Person.__init__(self, fname, lname)
+
+x1 = Student("Mike", "Olsen")
+x1.printname()
+
+        
+# Use the super() Function
+# Python also has a super() function that will make the child class inherit all the methods and properties from its parent:
+
+class superclass:
+    def __init__(self,brand,model):
+        self.brand =brand
+        self.model = model
+    
+    def output(self):
+        print(self.brand, self.model)
+
+class names(superclass):
+    def __init__(self, brand, model):
+        super().__init__(brand, model)
+        # self.properyyes = 20003
+
+x2 = names("Mustang","100 cc")
+x2.output()
+# print(x.properyyes)
+
+# By using the super() function, you do not have to use the name of the parent element, it will automatically inherit the methods and properties from its parent.
+# Add Properties
+del superclass,x,names
+
+
+
+# In the given code, an instance x of the superclass is created with the arguments "Mustang" and "100 cc". However, the superclass does not have a property named properyyes. This property is only defined in the subclass names. Therefore, the code will raise an attribute error when we try to access the properyyes property on the x object of superclass.
+# To fix this, we need to create an instance of the names subclass instead of superclass if we want to access the properyyes property.
+# Here's an updated code that should work as intended:
+
+class superclass:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+    
+    def output(self):
+        print(self.brand, self.model)
+
+class names(superclass):
+    def __init__(self, brand, model):
+        super().__init__(brand, model)
+        self.properyyes = 20003
+
+x1 = names("Mustang", "100 cc")
+x1.output()
+print(x1.properyyes)
+
+# Add Methods
+# Add a method called welcome to the Student class:
+
+class athang:
+    def __init__(self,date,pie):
+        self.date = date
+        self.pie = pie
+    
+    def printu(self):
+        print(self.date ,self.pie)
+
+class tharchen(athang):
+    def __init__(self, date, pie):
+        super().__init__(date, pie)
+        self.addnew = 2000000
+    
+    def welcome(self):
+        print("hi: ",self.date, "class of :    ",self.pie, "count",self.addnew)
+
+ad = tharchen("1/1/1 ", "tharchen")
+ad.welcome()
+    
+    
