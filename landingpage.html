@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Upload Videos</title>
 	<meta charset="utf-8">
@@ -7,100 +8,101 @@
 	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 </head>
 <style>
-    * {
-	box-sizing: border-box;
-}
+	* {
+		box-sizing: border-box;
+	}
 
-body {
-	font-family: Arial, sans-serif;
-	background-color: #f2f2f2;
-}
+	body {
+		font-family: Arial, sans-serif;
+		background-color: #f2f2f2;
+	}
 
-header {
-	background-color: #333;
-	color: #fff;
-	text-align: center;
-	padding: 20px;
-}
+	header {
+		background-color: #333;
+		color: #fff;
+		text-align: center;
+		padding: 20px;
+	}
 
-nav {
-	background-color: #444;
-	color: #fff;
-	padding: 10px;
-}
+	nav {
+		background-color: #444;
+		color: #fff;
+		padding: 10px;
+	}
 
-nav ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-}
+	nav ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
 
-nav li {
-	float: left;
-}
+	nav li {
+		float: left;
+	}
 
-nav li a {
-	display: block;
-	color: #fff;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-}
+	nav li a {
+		display: block;
+		color: #fff;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
 
-nav li a:hover {
-	background-color: #555;
-}
+	nav li a:hover {
+		background-color: #555;
+	}
 
-main {
-	margin: 20px;
-	padding: 20px;
-	background-color: #fff;
-	box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
+	main {
+		margin: 20px;
+		padding: 20px;
+		background-color: #fff;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	}
 
-form {
-	display: flex;
-	flex-direction: column;
-}
+	form {
+		display: flex;
+		flex-direction: column;
+	}
 
-label {
-	font-weight: bold;
-	margin-bottom: 5px;
-}
+	label {
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
 
-input[type=text], textarea {
-	padding: 10px;
-	border: none;
-	border-radius: 5px;
-	margin-bottom: 10px;
-}
+	input[type=text],
+	textarea {
+		padding: 10px;
+		border: none;
+		border-radius: 5px;
+		margin-bottom: 10px;
+	}
 
-input[type=file] {
-	margin-bottom: 20px;
-}
+	input[type=file] {
+		margin-bottom: 20px;
+	}
 
-input[type=submit] {
-	background-color: #333;
-	color: #fff;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-}
+	input[type=submit] {
+		background-color: #333;
+		color: #fff;
+		padding: 10px 20px;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
 
-input[type=submit]:hover {
-	background-color: #555;
-}
+	input[type=submit]:hover {
+		background-color: #555;
+	}
 
-footer {
-	background-color: #333;
-	color: #fff;
-	text-align: center;
-	padding: 20px;
-}
-
+	footer {
+		background-color: #333;
+		color: #fff;
+		text-align: center;
+		padding: 20px;
+	}
 </style>
+
 <body>
 	<header>
 		<h1>Upload Videos</h1>
@@ -116,51 +118,52 @@ footer {
 	</nav>
 	<main>
 		<h2>Upload Video</h2>
-        <form action="/upload" method="POST" enctype="multipart/form-data">
-            <label for="video">Choose a video to upload:</label>
-            <input type="file" id="video" name="video" accept="video/*">
-            <input type="submit" value="Upload">
-          </form>
+		<form action="/upload" method="POST" enctype="multipart/form-data">
+			<label for="video">Choose a video to upload:</label>
+			<input type="file" id="video" name="video" accept="video/*">
+			<input type="submit" value="Upload">
+		</form>
 	</main>
 	<footer>
 		<p>&copy; 2023 Upload Videos. All rights reserved.</p>
 	</footer>
 
-    <script>
-        const multer = require('multer');
+	<script>
+		const multer = require('multer');
 
-// Define storage options
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'uploads/videos')
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + '-' + file.originalname)
-  }
-})
+		// Define storage options
+		const storage = multer.diskStorage({
+			destination: function (req, file, cb) {
+				cb(null, 'uploads/videos')
+			},
+			filename: function (req, file, cb) {
+				cb(null, Date.now() + '-' + file.originalname)
+			}
+		})
 
-// Create upload function using multer and storage options
-const upload = multer({ storage: storage }).single('video')
+		// Create upload function using multer and storage options
+		const upload = multer({ storage: storage }).single('video')
 
-// Handle video upload request
-app.post('/upload', function (req, res) {
-  upload(req, res, function (err) {
-    if (err instanceof multer.MulterError) {
-      // A Multer error occurred when uploading
-      console.log(err)
-      res.status(500).send('Error uploading video.')
-    } else if (err) {
-      // An unknown error occurred when uploading
-      console.log(err)
-      res.status(500).send('Error uploading video.')
-    } else {
-      // Video upload was successful
-      console.log('Video uploaded successfully.')
-      res.send('Video uploaded successfully.')
-    }
-  })
-})
+		// Handle video upload request
+		app.post('/upload', function (req, res) {
+			upload(req, res, function (err) {
+				if (err instanceof multer.MulterError) {
+					// A Multer error occurred when uploading
+					console.log(err)
+					res.status(500).send('Error uploading video.')
+				} else if (err) {
+					// An unknown error occurred when uploading
+					console.log(err)
+					res.status(500).send('Error uploading video.')
+				} else {
+					// Video upload was successful
+					console.log('Video uploaded successfully.')
+					res.send('Video uploaded successfully.')
+				}
+			})
+		})
 
-    </script>
+	</script>
 </body>
+
 </html>
