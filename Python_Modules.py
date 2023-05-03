@@ -83,6 +83,8 @@ print(dateobject)
 
 
 print(dateobject.strftime('%B'))
+print(dateobject.strftime('%b'))
+print(dateobject.strftime('%H'))
 
 
 
