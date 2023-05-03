@@ -41,8 +41,48 @@ from mymodule import person1
 print(person1['name'])
 
 
+# Python Dates
+# A date in Python is not a data type of its own, but we can import a module named datetime to work with dates as date objects.
+
+import datetime
+
+x = datetime.datetime.now()
+print(x)
 
 
+import datetime
+
+d2 = datetime.datetime.now()
+
+print(d2)
+
+
+# The date contains year, month, day, hour, minute, second, and microsecond.
+# The datetime module has many methods to return information about the date object.
+# Here are a few examples, you will learn more about them later in this chapter:
+
+print(d2.year)
+
+print(x.strftime('%A'))
+
+
+# Creating Date Objects
+# To create a date, we can use the datetime() class (constructor) of the datetime module.
+# The datetime() class requires three parameters to create a date: year, month, day.
+
+import datetime
+
+dateobject = datetime.datetime(2023,5,30)
+
+print(dateobject)
+
+# The strftime() Method
+# The datetime object has a method for formatting date objects into readable strings.
+# The method is called strftime(), and takes one parameter, format, to specify the format of the returned string:
+
+
+
+print(dateobject.strftime('%B'))
 
 
 
