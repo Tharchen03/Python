@@ -1,27 +1,33 @@
 while True:
-    num = input("What operation do you want to do? (add, sub, mul, div, or exit): ")
+    operation = input(
+        "what kind of operation u want to do?(add,sub,mul,div or exit): ")
 
-    if num == "exit":
+    if operation == "exit":
         print("Exiting...")
         break
 
     try:
-        a = int(input("First number: "))
-        b = int(input("Second number: "))
+        a = int(input("1st num: "))
+        b = int(input("2nd num: "))
 
-        if num == "add":
-            sum1 = a+b
-            print("Sum: " + str(sum1))
-        elif num == "sub":
+        if operation == "add":
+            add = a + b
+            print("Sum: " +str(add))
+        elif operation == "sub":
             sub = a-b
-            print("Difference: " + str(sub))
-        elif num == "div":
-            div = a/b
-            print("Quotient: " + str(div))
-        elif num == "mul":
+            print("differences: " +str(sub))
+
+        elif operation == "mul":
             mul = a*b
-            print("Product: " + str(mul))
+            print("mul: " +str(mul))
+        elif operation == "div":
+            div = a/b
+            print("div: " +str(div))
         else:
-            print("Invalid operation")
+            print("Invalid Operation ")
     except ValueError:
         print("Invalid input, please enter a valid number")
+
+
+
+
